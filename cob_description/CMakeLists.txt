@@ -4,8 +4,6 @@ catkin_project(${PROJECT_NAME}
   	INCLUDE_DIRS include
 )
 
-include_directories(include)
-
 find_package(rosconsole REQUIRED)
 include_directories(${rosconsole_INCLUDE_DIRS})
 
