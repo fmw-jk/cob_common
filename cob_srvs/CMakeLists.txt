@@ -6,7 +6,7 @@ catkin_project(${PROJECT_NAME}
 
 find_package(genmsg REQUIRED)
 
-set(MSG_DEPS std_msgs trajectory_msgs geometry_msgs)
+set(MSG_DEPS geometry_msgs std_msgs trajectory_msgs)
 
 find_package(ROS REQUIRED ${MSG_DEPS})
 
