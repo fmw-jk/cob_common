@@ -1,30 +1,35 @@
-cmake_minimum_required(VERSION 2.4.6)
-include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
+project(brics_actuator)
 
-# Set the build type.  Options are:
-#  Coverage       : w/ debug symbols, w/o optimization, w/ code-coverage
-#  Debug          : w/ debug symbols, w/o optimization
-#  Release        : w/o debug symbols, w/ optimization
-#  RelWithDebInfo : w/ debug symbols, w/ optimization
-#  MinSizeRel     : w/o debug symbols, w/ optimization, stripped binaries
-#set(ROS_BUILD_TYPE RelWithDebInfo)
+catkin_project(${PROJECT_NAME}
+  INCLUDE_DIRS include
+)
 
-rosbuild_init()
+find_package(genmsg REQUIRED)
 
-#set the default path for built executables to the "bin" directory
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
-#set the default path for built libraries to the "lib" directory
-set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
+set(MSG_DEPS geometry_msgs std_msgs)
 
-#uncomment if you have defined messages
-rosbuild_genmsg()
-#uncomment if you have defined services
-#rosbuild_gensrv()
+find_package(ROS REQUIRED ${MSG_DEPS})
 
-#common commands for building c++ executables and libraries
-#rosbuild_add_library(${PROJECT_NAME} src/example.cpp)
-#target_link_libraries(${PROJECT_NAME} another_library)
-#rosbuild_add_boost_directories()
-#rosbuild_link_boost(${PROJECT_NAME} thread)
-#rosbuild_add_executable(example examples/example.cpp)
-#target_link_libraries(example ${PROJECT_NAME})
+set(MSG_FILES
+	CartesianPose.msg
+	CartesianTwist.msg
+	CartesianVector.msg
+	CartesianWrench.msg
+	JointAccelerations.msg
+	JointConstraint.msg
+	JointImpedances.msg
+	JointPositions.msg
+	JointTorques.msg
+	JointValue.msg
+	JointVelocities.msg
+	Poison.msg
+)
+
+add_message_files(DIRECTORY msg FILES ${MSG_FILES})
+
+generate_messages(DEPENDENCIES ${MSG_DEPS})
+
+# install all manifests; for compatibility with old build system
+install(FILES manifest-to-install.xml
+        DESTINATION share/cob_srvs RENAME manifest.xml)
+
