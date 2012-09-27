@@ -11,7 +11,7 @@
   <maintainer>Florian Weisshardt</maintainer>
 
   <license>BSD,LGPL</license>  
-  <copyright>Fraunhofer Institute for Manufacturing Engineering and Automation (IPA)</copyright>
+  <copyright>Fraunhofer-Institute for Manufacturing Engineering and Automation IPA</copyright>
 
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/cob_common</url>
