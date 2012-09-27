@@ -12,5 +12,3 @@ add_subdirectory(cob_srvs)
 #add_subdirectory(desire_description)
 #add_subdirectory(raw_description)
 
-
-#set(ROSPACK_MAKEDIST true)
