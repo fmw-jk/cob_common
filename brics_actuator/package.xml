@@ -1,19 +1,19 @@
 <package>
   <name>brics_actuator</name>
   <version>0.4.5</version> <!--TODO-->
-  <description brief="Care-O-bot stack with common packages"> <!--TODO-->
-  
-       The cob_common stack hosts common packages that are used within the Care-O-bot repository. E.g. utility packages or common message and service definitions etc. Also the urdf desciption of the robot is located in this stack.
-   
+  <description brief="brics_actuator">
+
+     brics_actuator
+
   </description>
-  
+
+  <author>Alexander Bubeck</author>
   <author>Florian Weisshardt</author>
   <maintainer>Florian Weisshardt</maintainer>
 
   <license>BSD</license>
-  <license>LGPL</license>
 
-  <url type="website">http://ros.org/wiki/cob_common</url>
+  <url type="website">http://ros.org/wiki/brics_actuator</url>
 
   <build_depend>catkin</build_depend>
   <build_depend>genmsg</build_depend>
