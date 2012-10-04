@@ -16,6 +16,7 @@
   <url type="website">http://ros.org/wiki/cob_common</url>
 
   <build_depend>catkin</build_depend>
+
   <build_depend>genmsg</build_depend>
   <build_depend>common_msgs</build_depend> <!-- trajectory_msgs, geometry_msgs -->
   <build_depend>robot_model</build_depend> <!-- convex_decomposition, ivcon, urdf -->
