@@ -1,25 +1,21 @@
+cmake_minimum_required(VERSION 2.8)
 project(cob_description)
-
-catkin_project(${PROJECT_NAME}
-  	INCLUDE_DIRS include
-)
 
 find_package(rosconsole REQUIRED)
 include_directories(${rosconsole_INCLUDE_DIRS})
+
+catkin_project(
+  	INCLUDE_DIRS include
+)
 
 add_executable(test_urdf test/test_urdf.cpp)
 target_link_libraries(test_urdf ${rosconsole_LIBRARIES}
 	${GTEST_LIBRARIES}
 )
 
-#install(TARGETS test_urdf
-#	DESTINATION bin
-#)
-
-# install all manifests; for compatibility with old build system
-install(FILES manifest-to-install.xml
-        DESTINATION share/cob_srvs RENAME manifest.xml)
-
+install(TARGETS test_urdf
+    RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 
 
 
