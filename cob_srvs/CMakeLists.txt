@@ -1,14 +1,15 @@
+cmake_minimum_required(VERSION 2.8)
 project(cob_srvs)
-
-catkin_project(${PROJECT_NAME}
-  INCLUDE_DIRS include
-  )
 
 find_package(genmsg REQUIRED)
 
 set(MSG_DEPS geometry_msgs std_msgs trajectory_msgs)
 
-find_package(ROS REQUIRED ${MSG_DEPS})
+find_package(catkin REQUIRED ${MSG_DEPS})
+
+catkin_project(${PROJECT_NAME}
+  INCLUDE_DIRS include
+  )
 
 set(SRV_FILES 
   GetPoseStampedTransformed.srv
@@ -24,7 +25,4 @@ add_service_files(DIRECTORY srv FILES ${SRV_FILES})
 
 generate_messages(DEPENDENCIES ${MSG_DEPS})
 
-# install all manifests; for compatibility with old build system
-install(FILES manifest-to-install.xml
-        DESTINATION share/cob_srvs RENAME manifest.xml)
 
